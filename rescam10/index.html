@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RE:SCAM เกมการเรียนรู้เรื่อง Recovery Scam สำหรับนักศึกษา" />
+  <title>RE:SCAM — Recovery Scam Investigation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div><div class="bg-orb orb-2"></div><div class="bg-grid"></div>
+
+  <header class="topbar" id="topbar">
+    <div class="brand-mini"><span class="brand-dot"></span> RE:SCAM <small>CASE #RS-021</small></div>
+    <div class="hud" aria-label="สถานะเกม">
+      <div><span>คะแนน</span><b id="hudScore">0</b>/100</div>
+      <div><span>เงิน</span><b id="hudMoney">฿20,000</b></div>
+      <div><span>Stress</span><b id="hudStress">0%</b></div>
+      <div><span>หลักฐาน</span><b id="hudEvidence">0/10</b></div>
+    </div>
+    <button class="icon-btn" id="menuBtn" aria-label="เปิดเมนู">☰</button>
+  </header>
+
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <button class="close-menu" id="closeMenu" aria-label="ปิดเมนู">×</button>
+    <h3>CASE MENU</h3>
+    <button data-nav="home">หน้าแรก</button>
+    <button data-nav="map">Mission Map</button>
+    <button data-nav="evidence">Evidence Board</button>
+    <button data-nav="report">Learning Report</button>
+    <button data-nav="safety">Safety Checklist</button>
+    <button data-nav="sources">Sources</button>
+    <button data-nav="ai">AI Development Log</button>
+    <button data-nav="rubric">Rubric Alignment</button>
+    <button id="resetBtn" class="danger-link">Reset Progress</button>
+  </aside>
+
+  <main id="app" aria-live="polite"></main>
+
+  <template id="homeTemplate">
+    <section class="screen hero-screen">
+      <div class="hero-copy">
+        <div class="eyebrow">CYBER CRIME TRAINING UNIT • EDUCATIONAL GAME</div>
+        <h1>RE:<span>SCAM</span></h1>
+        <h2>Recovery Scam Investigation</h2>
+        <p class="tagline">อย่าให้การเสียเงินครั้งแรก<br><strong>กลายเป็นครั้งที่สอง</strong></p>
+        <div class="hero-actions">
+          <button class="btn primary" data-action="start">เริ่มสืบคดี</button>
+          <button class="btn ghost" data-action="how">วิธีเล่น</button>
+        </div>
+        <div class="trust-row"><span>✓ ไม่ใช้เงินจริง</span><span>✓ ไม่เก็บข้อมูลส่วนตัว</span><span>✓ เล่นซ้ำได้</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone">
+          <div class="phone-top"></div>
+          <div class="phone-screen">
+            <div class="chat-head"><span class="avatar suspect">?</span><div><b>Recovery Support</b><small>ออนไลน์</small></div></div>
+            <div class="chat-bubble incoming">เราเจอเงินของคุณแล้ว<br>รับคืนได้ 100%</div>
+            <div class="chat-bubble incoming warning">ชำระค่าดำเนินการก่อน 1,500 บาท</div>
+            <div class="typing">•••</div>
+          </div>
+        </div>
+        <div class="floating-card card-a">⚠ RED FLAG<br><b>UPFRONT FEE</b></div>
+        <div class="floating-card card-b">🛡 DATA<br><b>PROTECTED</b></div>
+        <div class="detective-badge">RS<br><small>021</small></div>
+      </div>
+    </section>
+  </template>
+
+  <template id="briefingTemplate">
+    <section class="screen panel-screen">
+      <div class="section-head"><span>01</span><div><p>CASE BRIEFING</p><h2>เงินหาย...แล้วมีคนเสนอตามคืน</h2></div></div>
+      <div class="brief-grid">
+        <article class="case-file">
+          <div class="case-stamp">CONFIDENTIAL</div>
+          <div class="case-row"><span>ผู้เสียหาย</span><b>นักศึกษามหาวิทยาลัย</b></div>
+          <div class="case-row"><span>ความเสียหายครั้งแรก</span><b>฿5,000</b></div>
+          <div class="case-row"><span>เหตุการณ์</span><b>ซื้อสินค้าจากร้านปลอม</b></div>
+          <div class="case-row"><span>ความคืบหน้า</span><b>มีคนอ้างว่าสามารถตามเงินคืนได้</b></div>
+        </article>
+        <article class="mission-card highlight">
+          <span class="mission-label">YOUR MISSION</span>
+          <h3>ตรวจสอบว่าผู้ติดต่อรายนี้คือผู้ช่วยจริง หรือ Scammer ที่กำลังหลอกซ้ำ</h3>
+          <div class="objectives"><div><b>01</b> ตรวจสอบข้อความ</div><div><b>02</b> ค้นหา Red Flags</div><div><b>03</b> ตัดสินใจอย่างปลอดภัย</div></div>
+          <button class="btn primary full" data-action="accept">รับคดี</button>
+        </article>
+      </div>
+    </section>
+  </template>
+
+  <template id="mapTemplate">
+    <section class="screen panel-screen">
+      <div class="section-head"><span>02</span><div><p>MISSION MAP</p><h2>เส้นทางสืบสวน</h2></div></div>
+      <div id="missionMap" class="mission-map"></div>
+    </section>
+  </template>
+
+  <template id="missionTemplate">
+    <section class="screen mission-screen">
+      <div class="mission-title"><div><span id="missionNo"></span><small id="missionEn"></small><h2 id="missionTh"></h2></div><div class="status-pill" id="riskStatus">INVESTIGATING</div></div>
+      <div class="play-grid">
+        <aside class="character-card guide-card"><div class="avatar-xl nova">N</div><h3>NOVA</h3><p id="guideText">ผู้ช่วยวิเคราะห์คดี</p></aside>
+        <div class="phone game-phone"><div class="phone-top"></div><div class="phone-screen"><div class="chat-head"><span class="avatar suspect">?</span><div><b>Recovery Support</b><small>ไม่ยืนยันตัวตน</small></div></div><div id="chatArea" class="chat-area"></div></div></div>
+        <aside class="decision-panel"><span class="question-kicker">DECISION POINT</span><h3 id="questionText"></h3><div id="choices" class="choices"></div></aside>
+      </div>
+    </section>
+  </template>
+
+  <template id="feedbackTemplate">
+    <div class="modal-backdrop"><div class="feedback-modal"><div class="feedback-icon" id="feedbackIcon">✓</div><span id="feedbackTag"></span><h2 id="feedbackTitle"></h2><p id="feedbackText"></p><div class="impact-grid" id="impactGrid"></div><div class="learning-box"><b>WHY?</b><p id="learningText"></p></div><button class="btn primary full" id="continueBtn">ไปต่อ</button></div></div>
+  </template>
+
+  <template id="redflagTemplate">
+    <section class="screen panel-screen">
+      <div class="section-head"><span>07</span><div><p>MINI GAME</p><h2>RED FLAG HUNT</h2></div></div>
+      <div class="challenge-top"><p>เลือกเฉพาะข้อความที่เป็นสัญญาณอันตราย</p><div class="timer-chip">⏱ <b id="timer">45</b>s</div></div>
+      <div id="flagGrid" class="flag-grid"></div>
+      <div class="challenge-footer"><span>ถูก <b id="correctCount">0</b>/5</span><span>พลาด <b id="wrongCount">0</b></span><button class="btn primary" id="submitFlags">ยืนยันคำตอบ</button></div>
+    </section>
+  </template>
+
+  <template id="evidenceTemplate">
+    <section class="screen panel-screen">
+      <div class="section-head"><span>EV</span><div><p>INVESTIGATION WALL</p><h2>Evidence Board</h2></div></div>
+      <div id="evidenceBoard" class="evidence-board"></div>
+    </section>
+  </template>
+
+  <template id="finalTemplate">
+    <section class="screen final-screen"><div class="final-pulse"></div><div class="final-card"><span>FINAL MISSION</span><h1>FINAL DECISION</h1><div class="final-message">“นี่คือโอกาสสุดท้าย<br>โอน 2,500 บาทภายใน 5 นาที<br>แล้วคุณจะได้เงินทั้งหมดคืน”</div><div class="countdown">05:00</div><p>คุณจะทำอย่างไร?</p><div id="finalChoices" class="choices final-choices"></div></div></section>
+  </template>
+
+  <template id="completeTemplate">
+    <section class="screen complete-screen"><div class="complete-card"><div class="shield">🛡</div><span>MISSION COMPLETE</span><h1 id="endingTitle">SCAM STOPPED</h1><p id="endingText"></p><div class="stars" id="stars">★★★</div><div class="score-big"><small>INVESTIGATION SCORE</small><b id="finalScore">0</b><span>/100</span></div><div class="summary-grid"><div><span>RANK</span><b id="rankText"></b></div><div><span>EVIDENCE</span><b id="finalEvidence"></b></div><div><span>MONEY PROTECTED</span><b id="finalMoney"></b></div><div><span>PERSONAL DATA</span><b id="finalData"></b></div></div><div class="hero-actions center"><button class="btn primary" data-action="report">ดู Case Report</button><button class="btn ghost" data-action="replay">เล่นใหม่</button></div></div></section>
+  </template>
+
+  <template id="infoTemplate">
+    <section class="screen panel-screen"><div id="infoContent"></div></section>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
